@@ -1369,7 +1369,6 @@ NHAI-AS-2019-0026,Highway,Assam,Kokrajhar,Forest_Eco_Sensitive,149.48,987.21,201
 MoR-MH-2023-0189,Railway,Maharashtra,Sangli,Urban,514.7,2903.55,2023,5190,30.02,False,1.57,Approved,146,Not_Required,75.7,0.0,0.0,0.57,1.0,0.5481,0.6,0.0,2.7124,3,0,Medium,39.48,Moderate
 MoR-RJ-2019-0157,Railway,Rajasthan,Jodhpur,Rural_Agri,310.05,1395.59,2019,1161,32.22,False,2.26,Rejected,387,Not_Required,31.45,1.0,0.0,1.0,0.8697,0.5826,0.4,0.0,2.4928,7,1,Very_High,55.72,High
 NHAI-MH-2025-0190,Highway,Maharashtra,Kolhapur,Urban,155.59,911.13,2025,3105,15.73,False,1.94,Rejected,198,Not_Required,47.29,1.0,0.0,0.94,0.9909,0.5256,0.6,0.0,2.1948,1,0,High,60.79,High
-MoR-CG-2022-0032,Railway,Chhattisgarh,Dhamtari,Forest_Eco_Sensitive,413.89,1544.7,2022,225,33.32,False,2.65,Pending,730,Stage_1_Pending,0.0,1.0,1.0,1.0,0.6679,0.6861,0.55,0.0,2.6179,4,1,Very_High,70.19,High
 MNRE-GJ-2023-0132,Renewable_Energy,Gujarat,Mehsana,Forest_Eco_Sensitive,50.06,145.7,2023,37,23.35,False,2.87,Pending,730,Stage_1_Pending,3.18,1.0,1.0,1.0,0.4482,0.4634,0.55,0.0,1.7081,3,1,Very_High,66.34,High
 MNRE-GJ-2025-0133,Renewable_Energy,Gujarat,Anand,Tribal_Schedule_V,76.29,281.8,2025,94,27.53,False,1.68,Approved,455,Approved,68.41,0.0,0.0,0.68,0.5612,0.4634,0.55,0.0,1.8881,1,1,Very_High,32.72,Moderate
 NHAI-AP-2025-0060,Highway,Andhra Pradesh,Vizianagaram,Rural_Agri,188.67,1610.25,2025,280,34.57,False,2.42,Approved,379,Stage_1_Pending,5.91,0.0,1.0,1.0,0.6948,0.5669,0.75,0.0,2.278,1,1,Very_High,59.66,High
@@ -13584,3 +13583,4 @@ TEST-SYNTH-47287-47,Renewable_Energy,Maharashtra,Nashik,Coastal,106.89,1209.3,20
 TEST-SYNTH-47287-48,Highway,Karnataka,Kalaburagi,Desert,249.13,3545.47,2022,1056,8.47,True,1.42,Exempted,281,Stage 1 Approved,91.4,0.5,0.5,0.5,0.5,0.5,0.5,0.5,,1,1,Low,59.5,Low
 TEST-SYNTH-47287-49,Railway,Tamil Nadu,Tiruchirappalli,Hilly,310.51,2711.95,2023,361,24.05,False,2.03,Approved,306,Not_Required,23.8,0.5,0.5,0.5,0.5,0.5,0.5,0.5,,1,1,Low,75.2,Low
 INGEST-1789048238745,Highway,Maharashtra,Pune,Plain,85.0,450.0,2023,320,3.5,False,1.5,Approved,45,Stage 1 Approved,35.0,0.5,0.5,0.5,0.5,0.5,0.5,0.5,,1,0,Low,25.0,Low
+MoR-CG-2022-0032,Railway,Chhattisgarh,Dhamtari,Forest_Eco_Sensitive,2.34,1544.7,2023,225,33.32,False,343.0,Pending,730,Not_Required,10.0,0.5,0.5,0.5,0.5,0.5,0.5,0.5,,1,1,High,83.4,High

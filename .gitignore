@@ -65,4 +65,7 @@ test_edge_*/
 scratch/
 new_files/
 
-
+# Python virtual environments
+.venv310/
+.venv/
+venv/

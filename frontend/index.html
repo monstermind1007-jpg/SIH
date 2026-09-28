@@ -524,11 +524,11 @@
       font-size: 11px;
       font-weight: 700;
       color: var(--color-carbon);
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(8, 14, 28, 0.96);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border: 1.5px solid var(--color-apple-blue);
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.42);
       transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
       cursor: pointer;
       padding: 0 8px;
@@ -538,7 +538,7 @@
     }
     .apple-cluster-badge:hover {
       transform: scale(1.08);
-      box-shadow: 0 6px 18px rgba(0, 113, 227, 0.22);
+      box-shadow: 0 6px 18px rgba(34, 211, 238, 0.24);
     }
     .apple-cluster-dot {
       width: 6px;
@@ -918,6 +918,349 @@
     /* Utility Helpers */
     .hidden { display: none !important; }
     .text-mono { font-family: var(--font-family-mono); }
+
+    /* NEXUS-XAI dark workstation theme */
+    :root {
+      --color-apple-blue: #22d3ee;
+      --color-link-blue: #67e8f9;
+      --color-signal-blue: #22d3ee;
+      --color-carbon: #e2e8f0;
+      --color-frost: #070d18;
+      --color-ice: #0c1728;
+      --color-smoke: #cbd5e1;
+      --color-graphite: #94a3b8;
+      --color-ash: #94a3b8;
+      --color-mist: #64748b;
+      --color-onyx: #020617;
+      --color-pebble: #111c2e;
+      --color-white: #0b1220;
+      --color-border: #243248;
+      --color-border-subtle: #1b293d;
+      --risk-low-bg: rgba(16, 185, 129, 0.12);
+      --risk-low-border: rgba(16, 185, 129, 0.42);
+      --risk-med-bg: rgba(245, 158, 11, 0.12);
+      --risk-med-border: rgba(245, 158, 11, 0.42);
+      --risk-high-bg: rgba(239, 68, 68, 0.12);
+      --risk-high-border: rgba(239, 68, 68, 0.42);
+      --page-max-width: 1720px;
+    }
+
+    body {
+      background-color: #060e20;
+      background-image: linear-gradient(rgba(34, 211, 238, 0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(34, 211, 238, 0.025) 1px, transparent 1px);
+      background-size: 36px 36px;
+      color: var(--color-carbon);
+    }
+
+    .apple-sub-nav {
+      background: rgba(8, 14, 28, 0.96);
+      border-bottom-color: rgba(34, 211, 238, 0.18);
+      backdrop-filter: blur(18px);
+      flex-wrap: wrap;
+    }
+
+    .segmented-control {
+      background: rgba(15, 23, 42, 0.86);
+      border: 1px solid rgba(148, 163, 184, 0.12);
+    }
+
+    .segmented-tab { color: #94a3b8; }
+    .segmented-tab:hover { color: #f1f5f9; }
+    .segmented-tab.active {
+      background: #123247;
+      color: #67e8f9;
+      box-shadow: inset 0 0 0 1px rgba(34, 211, 238, 0.24);
+    }
+
+    .btn-apple-primary {
+      background: #0891b2;
+      color: #ecfeff;
+    }
+    .btn-apple-primary:hover { background: #0e7490; }
+    .btn-apple-secondary {
+      border-color: #334155;
+      color: #cbd5e1;
+      background: rgba(15, 23, 42, 0.52);
+    }
+    .btn-apple-secondary:hover {
+      background: #142238;
+      border-color: rgba(34, 211, 238, 0.48);
+      color: #ecfeff;
+    }
+    .btn-apple-subtle {
+      color: #cbd5e1;
+      background: #111c2e;
+    }
+
+    .app-container { padding: 24px clamp(16px, 3vw, 40px); }
+    .apple-card, .slim-stats-strip, .gis-wrapper {
+      background: rgba(9, 16, 30, 0.94);
+      border-color: rgba(71, 85, 105, 0.48);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.16);
+    }
+    .card-header-clean { border-bottom-color: var(--color-border-subtle); }
+    .form-input, .form-select {
+      color-scheme: dark;
+      background-color: #080f1c;
+      border-color: #334155;
+      color: #e2e8f0;
+    }
+    .form-input:focus, .form-select:focus {
+      background-color: #0b1728;
+      border-color: #22d3ee;
+      box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.1);
+    }
+    .terrain-select-wrap {
+      position: relative;
+    }
+    .terrain-select-wrap::after {
+      content: "";
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      width: 7px;
+      height: 7px;
+      border-right: 1.5px solid #67e8f9;
+      border-bottom: 1.5px solid #67e8f9;
+      transform: translateY(-70%) rotate(45deg);
+      pointer-events: none;
+    }
+    .form-select.terrain-select {
+      height: 42px;
+      padding: 0 38px 0 13px;
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: linear-gradient(90deg, rgba(34, 211, 238, 0.055), transparent 60%);
+      border-color: #2b4058;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .form-select.terrain-select option,
+    .form-select.terrain-select optgroup {
+      color: #e2e8f0;
+      background-color: #0b1220;
+    }
+    .form-select.terrain-select option:checked {
+      color: #ecfeff;
+      background-color: #164e63;
+    }
+    .form-select.terrain-select.autofilled-field {
+      color: #e2e8f0 !important;
+      background-color: #0b1728 !important;
+      border-color: #22d3ee !important;
+      box-shadow: 0 0 0 2px rgba(34, 211, 238, 0.14) !important;
+    }
+    .form-select.terrain-select:hover {
+      border-color: #3c6278;
+      background-color: #0b1728;
+    }
+    .form-select.terrain-select:focus {
+      border-color: #22d3ee;
+      box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.12), 0 0 18px rgba(34, 211, 238, 0.06);
+    }
+    #inp-terrain-vedas-badge {
+      color: #a5f3fc !important;
+      background: rgba(8, 47, 73, 0.48) !important;
+      border-color: rgba(34, 211, 238, 0.25) !important;
+      border-radius: 8px !important;
+      line-height: 1.45;
+    }
+    .autofill-indicator-tag {
+      color: #a5f3fc;
+      background: rgba(8, 47, 73, 0.72);
+      border: 1px solid rgba(34, 211, 238, 0.24);
+    }
+    .metric-grid-tile {
+      background: rgba(12, 23, 40, 0.85);
+      border-color: #243248;
+    }
+    .mitigation-card {
+      background: rgba(15, 23, 42, 0.7);
+      border-color: #1e293b;
+      border-left-color: #22d3ee;
+    }
+    .mitigation-card:hover {
+      border-color: #334155;
+      border-left-color: #22d3ee;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+    .mitigation-title { color: #f1f5f9; }
+    .mitigation-desc { color: #aab8ca; }
+    .mitigation-metrics-row { border-top-color: #263449; color: #94a3b8; }
+    .mitigation-metrics-row strong { color: #e2e8f0; }
+    .mitigation-roi-pill {
+      background: rgba(16, 185, 129, 0.12);
+      color: #6ee7b7;
+      border-color: rgba(16, 185, 129, 0.3);
+    }
+    .risk-chip { background: #0c1728; border-color: #334155; color: #cbd5e1; }
+    .map-overlay-card, .map-basemap-switcher {
+      background: rgba(8, 14, 28, 0.94);
+      border-color: #334155;
+      color: #e2e8f0;
+    }
+    .basemap-btn { color: #cbd5e1; }
+    .basemap-btn.active { background: #0e7490; color: #ecfeff; }
+    .map-btn-square { background: #0b1220; border-color: #334155; color: #e2e8f0; }
+    .gis-map-viewport, #map, .leaflet-container { background: #070d18 !important; }
+    .leaflet-container { color: #e2e8f0; }
+
+    #map-status-overlay { background: rgba(6, 10, 20, 0.82) !important; }
+    button[title="Open Saved Analyses window"] {
+      background: #0c1728 !important;
+      border-color: #2a435c !important;
+      color: #e2e8f0 !important;
+    }
+    button[title="Open Saved Analyses window"]:hover { background: #13253a !important; }
+    #map-status-text,
+    #btn-upload-pdf,
+    #street-view-modal > div,
+    #save-analysis-modal > div,
+    #saved-analyses-window-modal > div,
+    #saved-analyses-window-list,
+    .saved-analysis-window-card {
+      background: #0b1220 !important;
+      color: #e2e8f0;
+      border-color: #29384d;
+    }
+    #saved-analyses-window-modal > div > div[style*="background: #ffffff"],
+    #street-view-modal > div > div[style*="background: #ffffff"],
+    #saved-analyses-window-modal [style*="background: #f8fafc"] {
+      background: #0c1728 !important;
+      color: #cbd5e1;
+    }
+    #saved-analyses-window-modal .form-input,
+    #save-analysis-modal .form-input { background: #080f1c !important; color: #e2e8f0; }
+    .badge-tier-Low { background: rgba(16, 185, 129, 0.14); color: #6ee7b7; border-color: rgba(16, 185, 129, 0.42); }
+    .badge-tier-Medium { background: rgba(245, 158, 11, 0.14); color: #fcd34d; border-color: rgba(245, 158, 11, 0.42); }
+    .badge-tier-High { background: rgba(239, 68, 68, 0.14); color: #fca5a5; border-color: rgba(239, 68, 68, 0.42); }
+    .badge-tier-Critical { background: rgba(225, 29, 72, 0.16); color: #fda4af; border-color: rgba(251, 113, 133, 0.42); }
+
+    .mitigation-view { display: flex; flex-direction: column; gap: 20px; }
+    .mitigation-hero {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 8px 2px 4px;
+    }
+    .mitigation-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: #67e8f9;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .mitigation-hero h1 {
+      color: #f8fafc;
+      font-size: clamp(25px, 3vw, 34px);
+      line-height: 1.15;
+      font-weight: 700;
+      margin: 0;
+    }
+    .mitigation-hero p {
+      max-width: 650px;
+      margin: 9px 0 0;
+      color: #94a3b8;
+      font-size: 13px;
+    }
+    .mitigation-context {
+      display: flex;
+      gap: 0;
+      border: 1px solid rgba(71, 85, 105, 0.55);
+      border-radius: 8px;
+      background: rgba(8, 14, 28, 0.76);
+      overflow: hidden;
+    }
+    .mitigation-context-item { min-width: 128px; padding: 11px 15px; }
+    .mitigation-context-item + .mitigation-context-item { border-left: 1px solid #263449; }
+    .mitigation-context-label { display: block; color: #74859b; font-size: 10px; text-transform: uppercase; letter-spacing: .7px; margin-bottom: 5px; }
+    .mitigation-context-value { color: #e2e8f0; font: 600 14px var(--font-family-mono); white-space: nowrap; }
+    .mitigation-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(340px, .85fr);
+      align-items: start;
+      gap: 18px;
+    }
+    .mitigation-panel { margin: 0; padding: 22px; }
+    .mitigation-panel .card-header-clean { margin-bottom: 14px; }
+    .mitigation-panel .card-title-clean { color: #f1f5f9; }
+    .mitigation-count {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: #67e8f9;
+      font-size: 11px;
+      white-space: nowrap;
+    }
+    .mitigation-actions { display: flex; flex-direction: column; gap: 10px; }
+    .mitigation-action-row {
+      background: rgba(15, 23, 42, 0.68);
+      border: 1px solid #243248;
+      border-left: 3px solid #22d3ee;
+      border-radius: 7px;
+      padding: 15px 16px;
+      transition: background-color .18s ease, border-color .18s ease;
+    }
+    .mitigation-action-row:hover { background: rgba(22, 34, 54, 0.84); border-color: #3b506a; }
+    .mitigation-action-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+    .mitigation-priority { color: #67e8f9; font: 700 10px var(--font-family-mono); letter-spacing: .6px; white-space: nowrap; }
+    .mitigation-action-row .mitigation-title { font-size: 14px; line-height: 1.45; }
+    .mitigation-action-row .mitigation-desc { margin: 8px 0 12px; font-size: 12px; }
+    .mitigation-action-metrics { display: flex; flex-wrap: wrap; gap: 8px 20px; border-top: 1px solid #263449; padding-top: 10px; font-size: 11px; }
+    .sim-impact {
+      background: linear-gradient(135deg, rgba(8, 145, 178, 0.14), rgba(15, 23, 42, 0.72) 62%);
+      border: 1px solid rgba(34, 211, 238, 0.22);
+      border-radius: 7px;
+      padding: 16px;
+      margin-bottom: 19px;
+    }
+    .sim-impact-header { display: flex; justify-content: space-between; gap: 10px; align-items: center; }
+    .sim-impact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 13px; }
+    .sim-impact-value { color: #6ee7b7; font-size: 30px; line-height: 1; font-weight: 700; font-family: var(--font-family-mono); }
+    .sim-impact-value.risk { color: #67e8f9; }
+    .sim-impact-caption { display: block; margin-top: 6px; color: #aab8ca; font-size: 11px; }
+    .sim-control { padding: 12px 0; border-bottom: 1px solid #1e293b; }
+    .sim-control:last-of-type { border-bottom: 0; }
+    .sim-control-heading { display: flex; justify-content: space-between; gap: 12px; align-items: center; margin-bottom: 8px; font-size: 12px; color: #dbe4ef; }
+    .sim-control-heading strong { color: #67e8f9; font: 600 11px var(--font-family-mono); }
+    .sim-control input[type="range"] { accent-color: #22d3ee; }
+    .sim-control input[type="checkbox"] { accent-color: #06b6d4 !important; }
+    .sim-control .form-select { height: 36px; }
+    .sim-helper { color: #8191a6; font-size: 11px; line-height: 1.45; }
+
+    html, body { overflow-x: clip; }
+    .inspector-drawer {
+      right: 0;
+      width: min(460px, 100vw);
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .inspector-drawer.open { right: 0; transform: translateX(0); }
+
+    @media (max-width: 1080px) {
+      .apple-sub-nav { align-items: flex-start; }
+      .sub-nav-left { flex-wrap: wrap; }
+      .mitigation-layout { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 680px) {
+      .app-container { padding: 16px 12px; }
+      .apple-sub-nav { position: sticky; display: grid; grid-template-columns: minmax(0, 1fr); padding: 8px 10px; }
+      .sub-nav-left { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; min-width: 0; width: 100%; flex-shrink: 1; }
+      .segmented-control { width: 100%; max-width: 100%; overflow-x: auto; }
+      .segmented-tab { padding: 7px 9px; font-size: 11px; }
+      .sub-nav-right { width: 100%; min-width: 0; margin-left: 0; overflow-x: auto; }
+      .mitigation-context { width: 100%; }
+      .mitigation-context-item { min-width: 0; flex: 1; padding: 10px 9px; }
+      .mitigation-context-value { font-size: 11px; }
+      .mitigation-panel { padding: 16px; }
+      .mitigation-action-metrics { gap: 8px 12px; }
+    }
   </style>
 </head>
 <body>
@@ -1102,9 +1445,9 @@
 
           <!-- Basemap View Selector (Canvas, Street Map View, Satellite) -->
           <div class="map-basemap-switcher">
-            <button id="basemap-canvas-btn" class="basemap-btn active" onclick="setBasemap('canvas')" title="Minimal Light Canvas View">
+            <button id="basemap-canvas-btn" class="basemap-btn active" onclick="setBasemap('canvas')" title="Dark Canvas Basemap">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
-              <span>Canvas</span>
+              <span>Dark Canvas</span>
             </button>
             <button id="basemap-streets-btn" class="basemap-btn" onclick="setBasemap('streets')" title="Detailed Street Map View (Roads, Highways & Landmarks)">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #0071e3;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
@@ -1284,15 +1627,17 @@
                 </div>
               </div>
               <div class="form-group">
-                <label class="form-label">Terrain Type</label>
-                <select id="inp-terrain" class="form-select">
-                  <option value="" selected>Select Terrain Type (Auto-detecting...)</option>
-                  <option value="Urban">Urban</option>
-                  <option value="Rural_Agri">Rural Agriculture</option>
-                  <option value="Forest_Eco_Sensitive">Forest / Eco Sensitive</option>
-                  <option value="Hilly">Hilly / Difficult</option>
-                  <option value="Tribal_Schedule_V">Tribal Schedule V</option>
-                </select>
+                <label class="form-label" for="inp-terrain">Terrain Type</label>
+                <div class="terrain-select-wrap">
+                  <select id="inp-terrain" class="form-select terrain-select">
+                    <option value="" selected>Select Terrain Type (Auto-detecting...)</option>
+                    <option value="Urban">Urban</option>
+                    <option value="Rural_Agri">Rural Agriculture</option>
+                    <option value="Forest_Eco_Sensitive">Forest / Eco Sensitive</option>
+                    <option value="Hilly">Hilly / Difficult</option>
+                    <option value="Tribal_Schedule_V">Tribal Schedule V</option>
+                  </select>
+                </div>
                 <div id="inp-terrain-vedas-badge" style="display: none; align-items: center; gap: 6px; font-size: 11px; color: #0369a1; background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 6px; padding: 4px 8px; margin-top: 6px;">
                   <span>🛰️ <strong>ISRO VEDAS:</strong> <span id="inp-terrain-vedas-text">Auto-detected terrain telemetry</span></span>
                 </div>
@@ -1688,94 +2033,107 @@
     <!-- =========================================================================
          TAB 4: PRESCRIPTIVE MITIGATIONS & WHAT-IF SIMULATOR
          ========================================================================= -->
-    <section id="view-mitigations" class="tab-view hidden">
-      <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 24px;">
-        
-        <!-- Left: Actionable Prescriptive Recommendations -->
-        <div class="apple-card">
-          <div class="card-header-clean">
-            <div>
-              <h3 class="card-title-clean">Prescriptive AI Interventions</h3>
-              <p class="card-subtitle-clean">Ranked by delay days saved and capital protection</p>
-            </div>
+    <section id="view-mitigations" class="tab-view hidden mitigation-view">
+      <header class="mitigation-hero">
+        <div>
+          <div class="mitigation-eyebrow"><span aria-hidden="true">◆</span> RFCTLARR Act 2013 <span aria-hidden="true">/</span> Optimization cockpit</div>
+          <h1>Prescriptive Intervention &amp; Risk Reversal Engine</h1>
+          <p>Prioritize practical interventions, compare their estimated impact, and carry selected changes into the risk predictor.</p>
+        </div>
+        <div class="mitigation-context" aria-label="Current project risk context">
+          <div class="mitigation-context-item">
+            <span class="mitigation-context-label">Active project</span>
+            <span class="mitigation-context-value" id="mitigation-project-name">Select a project</span>
           </div>
-
-          <div id="full-prescriptive-actions-list">
-            <!-- Dynamically populated -->
+          <div class="mitigation-context-item">
+            <span class="mitigation-context-label">Predicted delay</span>
+            <span class="mitigation-context-value" id="mitigation-base-delay">-- days</span>
+          </div>
+          <div class="mitigation-context-item">
+            <span class="mitigation-context-label">Risk score</span>
+            <span class="mitigation-context-value" id="mitigation-base-risk">-- / 100</span>
           </div>
         </div>
+      </header>
 
-        <!-- Right: Interactive What-If Simulator -->
-        <div class="apple-card">
+      <div class="mitigation-layout">
+        <section class="apple-card mitigation-panel" aria-labelledby="mitigation-actions-title">
           <div class="card-header-clean">
             <div>
-              <h3 class="card-title-clean">What-If Intervention Simulator</h3>
-              <p class="card-subtitle-clean">Simulate operational actions and measure real-time delta</p>
+              <h2 class="card-title-clean" id="mitigation-actions-title">Prescriptive AI Interventions</h2>
+              <p class="card-subtitle-clean">Ranked by estimated delay reduction and capital protection</p>
+            </div>
+            <span class="mitigation-count"><span aria-hidden="true">✦</span> <span id="mitigation-action-count">Recommendations</span></span>
+          </div>
+          <div id="full-prescriptive-actions-list" class="mitigation-actions">
+            <!-- Dynamically populated -->
+          </div>
+        </section>
+
+        <aside class="apple-card mitigation-panel" aria-labelledby="simulator-title">
+          <div class="card-header-clean">
+            <div>
+              <h2 class="card-title-clean" id="simulator-title">What-If Intervention Simulator</h2>
+              <p class="card-subtitle-clean">Estimate impact before applying changes</p>
+            </div>
+            <button type="button" class="btn-apple-subtle" onclick="updateSimulationValues()" title="Reset displayed impact from current controls" aria-label="Refresh simulation">↻</button>
+          </div>
+
+          <div class="sim-impact" aria-live="polite">
+            <div class="sim-impact-header">
+              <span class="metric-tile-title">Simulated impact delta</span>
+              <span class="mitigation-priority">LIVE ESTIMATE</span>
+            </div>
+            <div class="sim-impact-grid">
+              <div>
+                <span class="sim-impact-value" id="sim-days-saved">+45</span>
+                <span class="sim-impact-caption">Estimated days saved</span>
+              </div>
+              <div>
+                <span class="sim-impact-value risk" id="sim-risk-reduced">-24.2%</span>
+                <span class="sim-impact-caption">Estimated risk reduction</span>
+              </div>
+            </div>
+            <div class="sim-helper" style="border-top: 1px solid rgba(34, 211, 238, .15); margin-top: 13px; padding-top: 10px;">
+              Section 19(7) lapse horizon: <strong id="sim-lapse-horizon" style="color: #e2e8f0;">-- days remaining</strong>
             </div>
           </div>
 
-          <div style="background: var(--color-ice); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-cards); padding: 18px; margin-bottom: 20px;">
-            <div class="metric-tile-title">Simulated Impact Delta</div>
-            <div style="display: flex; gap: 20px; align-items: baseline; margin-top: 6px;">
-              <div>
-                <span style="font-size: 32px; font-weight: 700; color: var(--risk-low);" id="sim-days-saved">+45</span>
-                <span style="font-size: 14px; font-weight: 500; color: var(--color-ash);">Days Saved</span>
-              </div>
-              <div>
-                <span style="font-size: 32px; font-weight: 700; color: var(--color-apple-blue);" id="sim-risk-reduced">-24.2%</span>
-                <span style="font-size: 14px; font-weight: 500; color: var(--color-ash);">Risk Drop</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Sliders -->
-          <div class="form-group">
-            <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 4px;">
-              <span>Advance Fund Disbursement</span>
-              <strong id="val-sim-fund">+25%</strong>
-            </div>
+          <div class="sim-control">
+            <div class="sim-control-heading"><label for="sim-slider-fund">Advance fund disbursement</label><strong id="val-sim-fund">+25%</strong></div>
             <input type="range" id="sim-slider-fund" min="0" max="60" value="25" class="form-input" style="padding: 0;" oninput="updateSimulationValues()" />
+            <div class="sim-helper" style="display: flex; justify-content: space-between; margin-top: 5px;"><span>Current</span><span>Up to +60%</span></div>
           </div>
 
-          <div class="form-group">
-            <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 4px;">
-              <span>Expedite SIA Public Hearing</span>
-              <strong id="val-sim-sia">Active</strong>
-            </div>
+          <div class="sim-control">
+            <div class="sim-control-heading"><label for="sim-select-sia">Expedite SIA public hearing</label><strong id="val-sim-sia">Current</strong></div>
             <select id="sim-select-sia" class="form-select" onchange="updateSimulationValues()">
-              <option value="Approved">Fast-Track Approval (Exempted)</option>
-              <option value="In_Progress">Advance to In-Progress</option>
-              <option value="Pending" selected>Current (Pending)</option>
+              <option value="Approved">Fast-track approval / exemption</option>
+              <option value="In_Progress">Advance to in progress</option>
+              <option value="Pending" selected>Current: pending</option>
             </select>
           </div>
 
-          <div class="form-group">
-            <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 4px;">
-              <span>Deploy GIS Demarcation Team</span>
-              <strong id="val-sim-gis">Active (-10% Disputes)</strong>
-            </div>
-            <label style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--color-smoke); cursor: pointer;">
-              <input type="checkbox" id="sim-check-gis" checked style="accent-color: var(--color-apple-blue); width: 16px; height: 16px;" onchange="updateSimulationValues()" />
-              <span>Deploy specialized Survey of India boundary verification</span>
+          <div class="sim-control">
+            <div class="sim-control-heading"><span>GIS demarcation team</span><strong id="val-sim-gis">Active</strong></div>
+            <label class="sim-helper" style="display: flex; align-items: flex-start; gap: 9px; cursor: pointer;">
+              <input type="checkbox" id="sim-check-gis" checked style="width: 16px; height: 16px; margin: 1px 0 0;" onchange="updateSimulationValues()" />
+              <span>Deploy Survey of India boundary verification to reduce parcel disputes.</span>
             </label>
           </div>
 
-          <div class="form-group">
-            <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 4px;">
-              <span>Direct Resettlement Dialogue</span>
-              <strong id="val-sim-dialogue">Yes</strong>
-            </div>
-            <label style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--color-smoke); cursor: pointer;">
-              <input type="checkbox" id="sim-check-dialogue" checked style="accent-color: var(--color-apple-blue); width: 16px; height: 16px;" onchange="updateSimulationValues()" />
-              <span>Resolve local agitation through ombudsman committee</span>
+          <div class="sim-control">
+            <div class="sim-control-heading"><span>Resettlement dialogue</span><strong id="val-sim-dialogue">Active</strong></div>
+            <label class="sim-helper" style="display: flex; align-items: flex-start; gap: 9px; cursor: pointer;">
+              <input type="checkbox" id="sim-check-dialogue" checked style="width: 16px; height: 16px; margin: 1px 0 0;" onchange="updateSimulationValues()" />
+              <span>Coordinate an ombudsman-led discussion with affected families.</span>
             </label>
           </div>
 
-          <button class="btn-apple-primary" style="width: 100%; margin-top: 10px;" onclick="applySimulationToPredictor()">
-            Apply Interventions to Predictor &rarr;
+          <button class="btn-apple-primary" style="width: 100%; margin-top: 16px;" onclick="applySimulationToPredictor()">
+            Apply interventions to predictor <span aria-hidden="true">→</span>
           </button>
-        </div>
-
+        </aside>
       </div>
     </section>
 
@@ -2219,6 +2577,7 @@
         }, 150);
       } else if (tabId === 'mitigations') {
         renderFullPrescriptiveActions();
+        updateSimulationValues();
       } else if (tabId === 'monitor') {
         setTimeout(() => {
           renderCalibrationChart();
@@ -2468,14 +2827,12 @@
       });
       window.map = map;
 
-      // Layer 1: Esri World Light Gray Base (clean, light, no API key watermark)
-      canvasBaseLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
-        attribution: 'Tiles &copy; Esri &mdash; Survey of India Compliant Cartography',
+      // Esri dark-gray basemap and labels, both available without an API key.
+      canvasBaseLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+        attribution: 'Tiles &copy; Esri &mdash; Sources: Esri, HERE, Garmin, OpenStreetMap contributors, and the GIS user community',
         maxZoom: 16
       });
-
-      // Layer 1 Labels: Reference layer in shadowPane
-      canvasRefLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}', {
+      canvasRefLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}', {
         maxZoom: 16,
         pane: 'shadowPane'
       });
@@ -2498,7 +2855,6 @@
 
       // Default basemap: Canvas
       canvasBaseLayer.addTo(map);
-      canvasRefLayer.addTo(map);
 
       // Initialize markersLayer with High-Performance Apple Marker Clustering
       if (window.L && typeof L.markerClusterGroup === 'function') {
@@ -3067,7 +3423,14 @@
     });
 
     // Filtering
+    let searchFilterTimeout = null;
+
     function applyFilters() {
+      if (searchFilterTimeout !== null) {
+        clearTimeout(searchFilterTimeout);
+        searchFilterTimeout = null;
+      }
+
       const searchInput = document.getElementById('search-input');
       const stateSelect = document.getElementById('state-select');
       const typeSelect = document.getElementById('type-select');
@@ -3153,7 +3516,10 @@
     document.getElementById('chip-med')?.addEventListener('click', () => toggleChip('Medium', 'chip-med', 'active-med'));
     document.getElementById('chip-high')?.addEventListener('click', () => toggleChip('High', 'chip-high', 'active-high'));
 
-    document.getElementById('search-input')?.addEventListener('input', applyFilters);
+    document.getElementById('search-input')?.addEventListener('input', () => {
+      clearTimeout(searchFilterTimeout);
+      searchFilterTimeout = setTimeout(applyFilters, 180);
+    });
     document.getElementById('type-select')?.addEventListener('change', applyFilters);
     document.getElementById('status-select')?.addEventListener('change', applyFilters);
     document.getElementById('larr-select')?.addEventListener('change', applyFilters);
@@ -5617,7 +5983,7 @@
 
       container.innerHTML = milestones.map(m => {
         const isCrit = m.is_critical_path;
-        const borderStyle = isCrit ? 'border: 1px solid rgba(239, 68, 68, 0.35); background: #fff8f8;' : 'border: 1px solid var(--color-border-subtle); background: var(--color-frost);';
+        const borderStyle = isCrit ? 'border: 1px solid rgba(248, 113, 113, 0.38); background: rgba(127, 29, 29, 0.22);' : 'border: 1px solid var(--color-border-subtle); background: var(--color-frost);';
         const badgeHtml = isCrit 
           ? '<span class="badge-tier badge-tier-High" style="font-size: 9px; padding: 1px 6px;">Critical Bottleneck</span>' 
           : '<span class="badge-tier badge-tier-Low" style="font-size: 9px; padding: 1px 6px;">On Track</span>';
@@ -5636,7 +6002,7 @@
               ${m.status ? `<div style="font-size: 11px; color: var(--color-smoke); margin-bottom: 2px;">Status: <strong>${escapeHtml(m.status.replace(/_/g, ' '))}</strong></div>` : ''}
               ${m.dispute_rate_pct != null ? `<div style="font-size: 11px; color: var(--color-smoke); margin-bottom: 2px;">Dispute Rate: <strong>${m.dispute_rate_pct}%</strong></div>` : ''}
             </div>
-            <div style="border-top: 1px solid rgba(0,0,0,0.06); padding-top: 6px; margin-top: 8px; display: flex; justify-content: space-between; align-items: center; font-size: 11px;">
+            <div style="border-top: 1px solid rgba(148, 163, 184, 0.16); padding-top: 6px; margin-top: 8px; display: flex; justify-content: space-between; align-items: center; font-size: 11px;">
               <span style="color: var(--color-ash);">Milestone Delay:</span>
               <strong style="color: ${m.estimated_delay_days > 20 ? 'var(--risk-high)' : 'var(--color-carbon)'}; font-family: var(--font-family-mono);">+${m.estimated_delay_days || 0} Days</strong>
             </div>
@@ -5940,10 +6306,10 @@
           plugins: {
             legend: { display: false },
             tooltip: {
-              backgroundColor: '#ffffff',
-              titleColor: '#111827',
-              bodyColor: '#374151',
-              borderColor: '#e5e7eb',
+              backgroundColor: '#0b1220',
+              titleColor: '#ffffff',
+              bodyColor: '#e2e8f0',
+              borderColor: '#334155',
               borderWidth: 1,
               padding: 12,
               boxPadding: 6,
@@ -5980,9 +6346,9 @@
               max: 100,
               ticks: {
                 stepSize: 50,
-                color: '#6b7280',
+                color: '#ffffff',
                 backdropColor: 'transparent',
-                font: { size: 9, family: 'Inter, sans-serif' },
+                font: { size: 10, weight: '500', family: 'Inter, sans-serif' },
                 callback: function(val) {
                   if (val === 100) return `+${maxAbsImpact} pts (higher risk)`;
                   if (val === 50) return `0 pts (neutral)`;
@@ -5991,18 +6357,18 @@
                 }
               },
               grid: {
-                color: '#e5e7eb',
+                color: 'rgba(203, 213, 225, 0.32)',
                 lineWidth: 1
               },
               angleLines: {
-                color: '#e5e7eb',
+                color: 'rgba(203, 213, 225, 0.52)',
                 lineWidth: 1
               },
               pointLabels: {
-                color: '#374151',
+                color: '#ffffff',
                 font: {
-                  size: 11,
-                  weight: '500',
+                  size: 12,
+                  weight: '600',
                   family: 'Inter, sans-serif'
                 }
               }
@@ -6270,34 +6636,63 @@
       const container = document.getElementById('full-prescriptive-actions-list');
       if (!container) return;
 
+      const predictionData = window.currentPredictionData || {};
+      const predictions = predictionData.predictions || predictionData;
+      const readDisplayedNumber = (id) => {
+        const text = document.getElementById(id)?.textContent || '';
+        const match = text.match(/-?\d+(?:\.\d+)?/);
+        return match ? Number(match[0]) : null;
+      };
+      const projectId = document.getElementById('inp-project-id')?.value || predictionData.project_id || 'Project not identified';
+      const predictedDelay = predictions.predicted_delay_days ?? readDisplayedNumber('out-delay-days');
+      const riskScore = predictions.crs ?? readDisplayedNumber('out-crs');
+      document.getElementById('mitigation-project-name').textContent = projectId;
+      document.getElementById('mitigation-base-delay').textContent = predictedDelay == null ? '-- days' : `${Math.round(predictedDelay)} days`;
+      document.getElementById('mitigation-base-risk').textContent = riskScore == null ? '-- / 100' : `${Number(riskScore).toFixed(1)} / 100`;
+
       const actions = window.currentPredictionData?.prescriptive_actions || [
         { title: 'Deploy Survey of India Cadastral Team', expected_impact: 'Demarcate cadastral boundaries electronically to resolve title claims before compensation rollout.', delay_saved_days: 45, cost_saved_cr: 24.5, roi: 240, timeframe: 'Immediate (1-15 days)' },
         { title: 'Expedite Stage-1 Forest Clearance', expected_impact: 'Convene joint state nodal officer session to clear ecological mitigations and compensatory afforestation.', delay_saved_days: 35, cost_saved_cr: 18.2, roi: 195, timeframe: 'Short-term (30 days)' },
         { title: 'Establish Ombudsman Dialogue Panel', expected_impact: 'Address community demands and multiplier grievances through transparent public consultation.', delay_saved_days: 25, cost_saved_cr: 12.0, roi: 160, timeframe: 'Ongoing' }
       ];
 
-      container.innerHTML = actions.map(a => `
-        <div class="mitigation-card">
-          <div class="mitigation-header">
-            <span class="mitigation-title">${escapeHtml(a.title)}</span>
+      document.getElementById('mitigation-action-count').textContent = `${actions.length} recommendations`;
+      container.innerHTML = actions.map((action, index) => {
+        const daysSaved = action.delay_saved_days ?? action.estimated_delay_reduction_days;
+        const capitalSaved = action.cost_saved_cr;
+        const capitalValue = capitalSaved == null ? 'Not estimated' : `₹${Number(capitalSaved).toLocaleString('en-IN')} Cr`;
+        const delayValue = daysSaved == null ? 'Not estimated' : `${Math.round(Number(daysSaved))} days`;
+        return `
+        <article class="mitigation-action-row">
+          <div class="mitigation-action-top">
+            <h3 class="mitigation-title">${escapeHtml(action.title || 'Recommended intervention')}</h3>
+            <span class="mitigation-priority">PRIORITY ${String(index + 1).padStart(2, '0')}</span>
           </div>
-          <p class="mitigation-desc">${escapeHtml(a.description || a.expected_impact || '')}</p>
-          <div class="mitigation-metrics-row">
-            <span>Estimated Savings: <strong>${a.delay_saved_days || 30} Days</strong></span>
-            <span>Capital Protection: <strong>₹${a.cost_saved_cr || 15.0} Cr</strong></span>
-            <span>Window: <strong>${escapeHtml(a.timeframe || 'Short-term')}</strong></span>
+          <p class="mitigation-desc">${escapeHtml(action.description || action.expected_impact || '')}</p>
+          <div class="mitigation-action-metrics">
+            <span>Estimated savings: <strong>${delayValue}</strong></span>
+            <span>Capital protection: <strong>${capitalValue}</strong></span>
+            <span>Window: <strong>${escapeHtml(action.timeframe || 'Not specified')}</strong></span>
           </div>
-        </div>
-      `).join('');
+        </article>
+      `;
+      }).join('');
     }
 
     function updateSimulationValues() {
       const fundDelta = parseInt(document.getElementById('sim-slider-fund')?.value || '25');
-      document.getElementById('val-sim-fund').textContent = `+${fundDelta}%`;
+      const fundValue = document.getElementById('val-sim-fund');
+      if (fundValue) fundValue.textContent = `+${fundDelta}%`;
 
       const siaVal = document.getElementById('sim-select-sia')?.value;
       const gisActive = document.getElementById('sim-check-gis')?.checked;
       const dialogueActive = document.getElementById('sim-check-dialogue')?.checked;
+      const siaLabel = document.getElementById('val-sim-sia');
+      const gisLabel = document.getElementById('val-sim-gis');
+      const dialogueLabel = document.getElementById('val-sim-dialogue');
+      if (siaLabel) siaLabel.textContent = siaVal === 'Approved' ? 'Fast-track' : siaVal === 'In_Progress' ? 'In progress' : 'Current';
+      if (gisLabel) gisLabel.textContent = gisActive ? 'Active' : 'Off';
+      if (dialogueLabel) dialogueLabel.textContent = dialogueActive ? 'Active' : 'Off';
 
       let days = fundDelta * 0.8;
       let probReduction = fundDelta * 0.35;
@@ -6308,8 +6703,17 @@
       if (gisActive) { days += 18; probReduction += 8.2; }
       if (dialogueActive) { days += 12; probReduction += 6.5; }
 
-      document.getElementById('sim-days-saved').textContent = `+${Math.round(days)}`;
-      document.getElementById('sim-risk-reduced').textContent = `-${probReduction.toFixed(1)}%`;
+      const daysSaved = document.getElementById('sim-days-saved');
+      const riskReduced = document.getElementById('sim-risk-reduced');
+      if (daysSaved) daysSaved.textContent = `+${Math.round(days)}`;
+      if (riskReduced) riskReduced.textContent = `-${probReduction.toFixed(1)}%`;
+
+      const section11Days = Number(document.getElementById('inp-sec11-days')?.value || 0);
+      const lapseHorizon = document.getElementById('sim-lapse-horizon');
+      if (lapseHorizon) {
+        const remaining = Math.max(0, 365 - section11Days);
+        lapseHorizon.textContent = remaining ? `${remaining} days remaining` : '365-day limit reached';
+      }
     }
 
     function applySimulationToPredictor() {
