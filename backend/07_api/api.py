@@ -1,5 +1,5 @@
-from fastapi import FastAPI, HTTPException, Security, Request, Depends, Query, File, UploadFile
-from fastapi.responses import FileResponse
+from fastapi import FastAPI, HTTPException, Security, Request, Depends, Query, File, UploadFile, Response
+from fastapi.responses import FileResponse, RedirectResponse
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from fastapi.security.api_key import APIKeyHeader
 from fastapi.middleware.cors import CORSMiddleware
@@ -19,6 +19,7 @@ import threading
 import jwt
 import sqlite3
 import uuid
+from urllib.parse import quote
 from typing import Optional, List, Dict, Any
 from starlette.concurrency import run_in_threadpool
 
@@ -168,7 +169,7 @@ class LoginRequest(BaseModel):
 
 @app.post("/auth/login")
 @limiter.limit("10/minute")
-async def login(request: Request, credentials: LoginRequest):
+async def login(request: Request, credentials: LoginRequest, response: Response):
     """
     Demo user login. Generates a signed JWT access token valid for 24 hours.
     """
@@ -192,6 +193,15 @@ async def login(request: Request, credentials: LoginRequest):
         "exp": int(exp.timestamp())
     }
     access_token = jwt.encode(payload, SECRET_KEY, algorithm=ALGORITHM)
+    response.set_cookie(
+        key="access_token",
+        value=access_token,
+        max_age=24 * 60 * 60,
+        httponly=True,
+        secure=request.url.scheme == "https",
+        samesite="lax",
+        path="/",
+    )
     return {
         "access_token": access_token,
         "token_type": "bearer",
@@ -567,12 +577,34 @@ def serve_landing():
         return FileResponse(path)
     return RedirectResponse(url="/docs")
 
+@app.get("/login")
+@app.head("/login")
+def serve_login():
+    path = find_frontend_file("login.html")
+    if path:
+        return FileResponse(path)
+    raise HTTPException(status_code=404, detail="Login page not found")
+
 @app.get("/dashboard")
 @app.head("/dashboard")
 @app.get("/model-governance")
 @app.get("/prescriptive-ai")
-def serve_dashboard():
+def serve_dashboard(request: Request):
     """Task 3: Standalone Dashboard Workbench"""
+    token = request.cookies.get("access_token")
+    try:
+        if not token:
+            raise jwt.PyJWTError("Missing access token")
+        jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+    except jwt.PyJWTError:
+        destination = request.url.path
+        if request.url.query:
+            destination += f"?{request.url.query}"
+        return RedirectResponse(
+            url=f"/login?next={quote(destination, safe='')}",
+            status_code=303,
+        )
+
     path = find_frontend_file("index.html")
     if path:
         return FileResponse(path)
@@ -2333,9 +2365,24 @@ async def ingest_records(request: Request, payload: IngestRequest, user: Any = D
 
 # Serve static assets from frontend or dashboard directory (e.g. geojson, images)
 @app.get("/{file_path:path}")
-async def serve_dashboard_file(file_path: str):
+async def serve_dashboard_file(file_path: str, request: Request):
     p = find_frontend_file(file_path) or find_frontend_file(file_path + ".html")
     if p and os.path.isfile(p):
+        dashboard_path = find_frontend_file("index.html")
+        if dashboard_path and os.path.normcase(os.path.realpath(p)) == os.path.normcase(os.path.realpath(dashboard_path)):
+            token = request.cookies.get("access_token")
+            try:
+                if not token:
+                    raise jwt.PyJWTError("Missing access token")
+                jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+            except jwt.PyJWTError:
+                destination = request.url.path
+                if request.url.query:
+                    destination += f"?{request.url.query}"
+                return RedirectResponse(
+                    url=f"/login?next={quote(destination, safe='')}",
+                    status_code=303,
+                )
         return FileResponse(p)
     raise HTTPException(status_code=404, detail="File Not Found")
 

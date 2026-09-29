@@ -710,6 +710,31 @@
       to { opacity: 1; }
     }
 
+    .milestone-pop {
+      animation: milestonePop 480ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+      animation-delay: calc(var(--milestone-index, 0) * 70ms);
+      position: relative;
+      transform-origin: center bottom;
+      transition: transform 180ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 180ms ease;
+    }
+
+    .milestone-pop:hover {
+      z-index: 1;
+      transform: translateY(-4px) scale(1.04);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
+    }
+
+    @keyframes milestonePop {
+      0% { opacity: 0; translate: 0 12px; scale: 0.88; }
+      70% { opacity: 1; translate: 0 -2px; scale: 1.03; }
+      100% { opacity: 1; translate: 0 0; scale: 1; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .milestone-pop { animation: none; transition: none; }
+      .milestone-pop:hover { transform: none; box-shadow: none; }
+    }
+
     /* Inspector Drawer (Slide-over) */
     .inspector-drawer {
       position: fixed;
@@ -867,7 +892,7 @@
       position: fixed;
       bottom: 24px;
       right: 24px;
-      background: var(--color-carbon);
+      background: #1d1d1f;
       color: #ffffff;
       padding: 12px 20px;
       border-radius: var(--radius-buttons);
@@ -990,6 +1015,10 @@
     .btn-apple-subtle {
       color: #cbd5e1;
       background: #111c2e;
+    }
+    .btn-apple-subtle:hover {
+      color: #e2e8f0;
+      background: #1b2b42;
     }
 
     .app-container { padding: 24px clamp(16px, 3vw, 40px); }
@@ -2517,7 +2546,7 @@
 
     // --- Authentication & Headers ---
     function getAuthHeaders() {
-      const headers = { "X-API-Key": "super-secret-token" };
+      const headers = {};
       const token = localStorage.getItem("access_token");
       if (token) {
         headers["Authorization"] = `Bearer ${token}`;
@@ -2701,7 +2730,7 @@
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'X-API-Key': 'super-secret-token'
+            ...getAuthHeaders()
           }
         });
         const result = await res.json();
@@ -2771,7 +2800,7 @@
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'X-API-Key': 'super-secret-token'
+            ...getAuthHeaders()
           },
           body: JSON.stringify({ records: records })
         });
@@ -5981,7 +6010,7 @@
         ];
       }
 
-      container.innerHTML = milestones.map(m => {
+      container.innerHTML = milestones.map((m, index) => {
         const isCrit = m.is_critical_path;
         const borderStyle = isCrit ? 'border: 1px solid rgba(248, 113, 113, 0.38); background: rgba(127, 29, 29, 0.22);' : 'border: 1px solid var(--color-border-subtle); background: var(--color-frost);';
         const badgeHtml = isCrit 
@@ -5989,7 +6018,7 @@
           : '<span class="badge-tier badge-tier-Low" style="font-size: 9px; padding: 1px 6px;">On Track</span>';
 
         return `
-          <div style="${borderStyle} border-radius: var(--radius-cards); padding: 12px 14px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div class="milestone-pop" style="${borderStyle} --milestone-index: ${index}; border-radius: var(--radius-cards); padding: 12px 14px; display: flex; flex-direction: column; justify-content: space-between;">
             <div>
               <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;">
                 <div style="font-weight: 600; font-size: 13px; color: var(--color-carbon); line-height: 1.3;">${escapeHtml(m.milestone)}</div>
