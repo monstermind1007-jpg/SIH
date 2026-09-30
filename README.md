@@ -1,4 +1,4 @@
-# NEXUS-XAI: National Executive XAI Utility System
+# DHARANETRA: National Executive XAI Utility System
 
 > **Land Acquisition Delay Prediction, Survival Modeling & Statutory Risk Governance for Indian Mega-Infrastructure**  
 > *Developed for the Ministry of Rural Development · Smart India Hackathon (SIH)*
