@@ -3,7 +3,6 @@ services:
     name: dharanetra-demo
     runtime: docker
     plan: free
-    region: singapore
     dockerfilePath: ./Dockerfile.api
     dockerContext: .
     healthCheckPath: /health
@@ -12,3 +11,35 @@ services:
         generateValue: true
       - key: API_KEY
         generateValue: true
+      - key: DEMO_EMAIL
+        value: demo@ministry.gov
+      - key: DEMO_PASSWORD
+        sync: false
+      - key: SAVED_ANALYSES_DB
+        value: /tmp/saved_analyses.db
+      - key: REMOTENESS_ALLOW_ONLINE
+        value: "0"
+  - type: web
+    name: dharanetra-frontend
+    runtime: static
+    buildCommand: echo "Publishing static frontend"
+    staticPublishPath: ./frontend
+    routes:
+      - type: rewrite
+        source: /
+        destination: /landing.html
+      - type: rewrite
+        source: /dashboard
+        destination: /index.html
+      - type: rewrite
+        source: /login
+        destination: /login.html
+      - type: rewrite
+        source: /methodology
+        destination: /methodology.html
+      - type: rewrite
+        source: /landing
+        destination: /landing.html
+      - type: rewrite
+        source: /xai-survival
+        destination: /xai_survival.html

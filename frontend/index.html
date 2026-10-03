@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LandIntel // AI Infrastructure Risk, Timeline & GIS Engine</title>
   <meta name="description" content="Next-Generation Dual-Paradigm AI Engine for Infrastructure Land Acquisition Risk Prediction, Random Survival Forests, and Survey of India Geospatial Intelligence.">
+  <script src="/api-config.js"></script>
   
   <!-- Typography: Inter & SF Pro fallback fonts with optical weights -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -2539,9 +2540,18 @@
 
     // --- API Base URL Helper ---
     function getApiBase() {
+      if (window.DHARANETRA_API_BASE_URL) return window.DHARANETRA_API_BASE_URL.replace(/\/$/, '');
       if (window.location.protocol === 'file:') return 'http://127.0.0.1:8000';
       if (window.location.port && window.location.port !== '8000') return 'http://127.0.0.1:8000';
       return '';
+    }
+
+    function apiFetch(path, options = {}) {
+      const base = getApiBase();
+      const url = /^https?:\/\//i.test(path) ? path : `${base}${path.startsWith('/') ? path : `/${path}`}`;
+      const headers = new Headers(options.headers || {});
+      headers.set('ngrok-skip-browser-warning', 'true');
+      return fetch(url, { ...options, headers, credentials: 'omit' });
     }
 
     // --- Authentication & Headers ---
@@ -2620,7 +2630,7 @@
 
     async function loadModelHealthDashboard() {
       try {
-        const res = await fetch('/model/health');
+        const res = await apiFetch('/model/health');
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
         cachedHealthData = data;
@@ -2726,7 +2736,7 @@
       if (spinner) spinner.style.display = 'inline-block';
 
       try {
-        const res = await fetch('/model/retrain', {
+        const res = await apiFetch('/model/retrain', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -2796,7 +2806,7 @@
         const records = Array.isArray(parsed) ? parsed : [parsed];
         if (feedback) feedback.textContent = 'Submitting records to pipeline...';
 
-        const res = await fetch('/model/ingest', {
+        const res = await apiFetch('/model/ingest', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -3841,7 +3851,7 @@
       if (foundState) queryParams.append('state', foundState);
       if (foundDistrict) queryParams.append('district', foundDistrict);
 
-      fetch(`${getApiBase()}/gis/detect-terrain?${queryParams.toString()}`, { headers: getAuthHeaders() })
+      apiFetch(`/gis/detect-terrain?${queryParams.toString()}`, { headers: getAuthHeaders() })
         .then(r => r.ok ? r.json() : null)
         .then(data => {
           if (data && data.terrain_type) {
@@ -3867,7 +3877,7 @@
 
       try {
         const headers = getAuthHeaders();
-        const res = await fetch('/projects/geo?limit=15000', { headers });
+        const res = await apiFetch('/projects/geo?limit=15000', { headers });
         if (!res.ok) throw new Error(`HTTP ${res.status}: ${res.statusText}`);
 
         allProjects = await res.json();
@@ -3982,7 +3992,7 @@
 
       try {
         const headers = getAuthHeaders();
-        const res = await fetch(`/projects/geo/${encodeURIComponent(projectId)}`, { headers });
+        const res = await apiFetch(`/projects/geo/${encodeURIComponent(projectId)}`, { headers });
         if (res.ok) {
           const detailed = await res.json();
           p = { ...p, ...detailed };
@@ -4263,8 +4273,8 @@
       try {
         const base = getApiBase();
         const [resDist, resCoords] = await Promise.allSettled([
-          fetch(`${base}/reference/districts`),
-          fetch(`${base}/reference/coordinates`)
+          apiFetch(`${base}/reference/districts`),
+          apiFetch(`${base}/reference/coordinates`)
         ]);
         if (resDist.status === 'fulfilled' && resDist.value.ok) {
           referenceDistrictsMap = await resDist.value.json();
@@ -4312,7 +4322,7 @@
         };
 
         try {
-          const res = await fetch(`${getApiBase()}/remoteness/evaluate`, {
+          const res = await apiFetch('/remoteness/evaluate', {
             method: 'POST',
             headers: { ...getAuthHeaders(), 'Content-Type': 'application/json' },
             body: JSON.stringify(reqBody)
@@ -4506,7 +4516,7 @@
         const formData = new FormData();
         formData.append('file', file);
 
-        const res = await fetch('/extract-project-pdf', {
+        const res = await apiFetch('/extract-project-pdf', {
           method: 'POST',
           headers: getAuthHeaders(),
           body: formData
@@ -4694,7 +4704,7 @@
       updateSec11LapseBadge('');
 
       if (!p) {
-        fetch(`/projects/geo/${encodeURIComponent(projectId)}`, { headers: getAuthHeaders() })
+        apiFetch(`/projects/geo/${encodeURIComponent(projectId)}`, { headers: getAuthHeaders() })
           .then(res => res.json())
           .then(data => {
             setPredictorStateAndDistrict(data.state || '', data.district || '');
@@ -4880,7 +4890,7 @@
           if (cleanState) params.append('state', cleanState);
           if (cleanDistrict) params.append('district', cleanDistrict);
 
-          const res = await fetch(`${getApiBase()}/gis/detect-terrain?${params.toString()}`, { headers: getAuthHeaders() });
+          const res = await apiFetch(`/gis/detect-terrain?${params.toString()}`, { headers: getAuthHeaders() });
           if (res.ok) {
             vData = await res.json();
             vData.queryKey = queryKey;
@@ -4933,7 +4943,7 @@
 
       if (!a || !a.input_payload) {
         try {
-          const res = await fetch(`/analyses/${encodeURIComponent(analysisId)}`, { headers: getAuthHeaders() });
+          const res = await apiFetch(`/analyses/${encodeURIComponent(analysisId)}`, { headers: getAuthHeaders() });
           if (res.ok) {
             a = await res.json();
           }
@@ -5172,7 +5182,7 @@
 
       try {
         const headers = { ...getAuthHeaders(), 'Content-Type': 'application/json' };
-        const res = await fetch(`${getApiBase()}/predict`, {
+        const res = await apiFetch('/predict', {
           method: 'POST',
           headers,
           body: JSON.stringify(payload)
@@ -6783,7 +6793,7 @@
     async function loadSavedAnalyses() {
       try {
         const headers = getAuthHeaders();
-        const res = await fetch('/analyses', { headers });
+        const res = await apiFetch('/analyses', { headers });
         if (!res.ok) {
           console.warn('[Saved Analyses] Fetch returned status:', res.status);
           return;
@@ -7035,7 +7045,7 @@
       }
       try {
         const headers = getAuthHeaders();
-        const res = await fetch(`/analyses/${encodeURIComponent(id)}`, {
+        const res = await apiFetch(`/analyses/${encodeURIComponent(id)}`, {
           method: 'DELETE',
           headers
         });
@@ -7134,7 +7144,7 @@
 
       try {
         const headers = { ...getAuthHeaders(), 'Content-Type': 'application/json' };
-        const res = await fetch('/analyses/save', {
+        const res = await apiFetch('/analyses/save', {
           method: 'POST',
           headers,
           body: JSON.stringify({

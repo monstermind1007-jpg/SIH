@@ -2,7 +2,6 @@ project_id,project_type,state,district,terrain_type,land_area_hectares,estimated
 MoR-WB-2021-0001,Railway,West Bengal,Paschim Medinipur,Urban,598.01,3840.88,2021,4819,25.22,True,2.13,Pending,228,Not_Required,28.65,1.0,0.0,1.0,1.0,0.5051,0.8,0.7,2.7774,5,0,High,76.5,Critical
 MoR-TS-2024-0001,Railway,Telangana,Hyderabad,Tribal_Schedule_V,492.64,1469.81,2024,477,52.64,True,3.51,Approved,565,Stage_1_Pending,0.0,0.0,1.0,1.0,0.7603,0.5311,0.5,0.7,2.6934,2,1,Very_High,66.3,High
 MNRE-UP-2024-0001,Renewable_Energy,Uttar Pradesh,Moradabad,Rural_Agri,20.86,95.28,2024,67,24.03,False,1.95,Approved,169,Not_Required,69.96,0.0,0.0,0.95,0.5199,0.3761,0.6,0.0,1.3397,2,0,Medium,37.72,Moderate
-NHAI-RJ-2023-0001,Highway,Rajasthan,Banswara,Rural_Agri,229.1,1485.37,2023,550,19.78,False,1.65,Pending,311,Not_Required,24.96,1.0,0.0,0.65,0.7778,0.5716,0.4,0.0,2.3619,3,0,High,47.99,Moderate
 NHAI-JH-2023-0001,Highway,Jharkhand,Gumla,Rural_Agri,89.23,650.38,2023,562,17.89,False,2.2,Approved,300,Stage_1_Pending,2.47,0.0,1.0,1.0,0.7804,0.6928,0.55,0.0,1.9554,3,0,High,57.16,High
 MoR-TN-2022-0001,Railway,Tamil Nadu,Chennai,Urban,260.46,663.86,2022,2598,31.58,False,1.96,Exempted,141,Not_Required,90.0,0.0,0.0,0.96,0.9689,0.5002,0.7,0.0,2.4174,4,0,Medium,47.76,Moderate
 NHAI-UK-2025-0001,Highway,Uttarakhand,Udham Singh Nagar,Forest_Eco_Sensitive,206.64,1792.96,2025,198,57.54,True,2.95,Pending,447,Approved,36.19,1.0,0.0,1.0,0.6523,0.6822,0.8,0.7,2.3173,1,1,Very_High,70.41,High
@@ -13584,3 +13583,4 @@ TEST-SYNTH-47287-48,Highway,Karnataka,Kalaburagi,Desert,249.13,3545.47,2022,1056
 TEST-SYNTH-47287-49,Railway,Tamil Nadu,Tiruchirappalli,Hilly,310.51,2711.95,2023,361,24.05,False,2.03,Approved,306,Not_Required,23.8,0.5,0.5,0.5,0.5,0.5,0.5,0.5,,1,1,Low,75.2,Low
 INGEST-1789048238745,Highway,Maharashtra,Pune,Plain,85.0,450.0,2023,320,3.5,False,1.5,Approved,45,Stage 1 Approved,35.0,0.5,0.5,0.5,0.5,0.5,0.5,0.5,,1,0,Low,25.0,Low
 MoR-CG-2022-0032,Railway,Chhattisgarh,Dhamtari,Forest_Eco_Sensitive,2.34,1544.7,2023,225,33.32,False,343.0,Pending,730,Not_Required,10.0,0.5,0.5,0.5,0.5,0.5,0.5,0.5,,1,1,High,83.4,High
+NHAI-RJ-2023-0001,Highway,Rajasthan,Banswara,Tribal_Schedule_V,229.1,1485.37,2023,550,19.78,False,1.65,Pending,311,Not_Required,24.96,0.5,0.5,0.5,0.5,0.5,0.5,0.5,,1,1,High,55.2,High

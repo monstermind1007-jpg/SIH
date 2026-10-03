@@ -4,8 +4,10 @@ Maintains backward compatibility with uvicorn api:app.
 """
 import os
 import sys
+from dotenv import load_dotenv
 
 _ROOT = os.path.dirname(os.path.abspath(__file__))
+load_dotenv(os.path.join(_ROOT, ".env"))
 _BACKEND = os.path.join(_ROOT, "backend")
 for _p in [_ROOT, _BACKEND]:
     if _p not in sys.path:

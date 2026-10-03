@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#08111f">
   <title>Sign in | National Risk Platform</title>
+  <script src="/api-config.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -137,10 +138,13 @@
       submitButton.textContent = 'Signing in...';
 
       try {
-        const response = await fetch('/auth/login', {
+        const apiBase = (window.DHARANETRA_API_BASE_URL || '').replace(/\/$/, '');
+        const headers = new Headers({ 'Content-Type': 'application/json' });
+        headers.set('ngrok-skip-browser-warning', 'true');
+        const response = await fetch(`${apiBase}/auth/login`, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          credentials: 'same-origin',
+          headers,
+          credentials: 'omit',
           body: JSON.stringify({
             email: document.getElementById('username').value.trim(),
             password: document.getElementById('password').value,
