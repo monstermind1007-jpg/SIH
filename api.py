@@ -1,6 +1,6 @@
 """
-Root entrypoint proxy forwarding to backend.api:app.
-Maintains backward compatibility with uvicorn api:app and Dockerfile defaults.
+Root entrypoint proxy forwarding to backend.api_sih:app.
+Maintains backward compatibility with uvicorn api:app.
 """
 import os
 import sys
@@ -11,8 +11,8 @@ for _p in [_ROOT, _BACKEND]:
     if _p not in sys.path:
         sys.path.insert(0, _p)
 
-from backend.api import app
+from backend.api_sih import app
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("backend.api:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("api:app", host="0.0.0.0", port=8000, reload=True)

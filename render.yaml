@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: dharanetra-demo
+    runtime: docker
+    plan: free
+    region: singapore
+    dockerfilePath: ./Dockerfile.api
+    dockerContext: .
+    healthCheckPath: /health
+    envVars:
+      - key: JWT_SECRET_KEY
+        generateValue: true
+      - key: API_KEY
+        generateValue: true
