@@ -2551,7 +2551,7 @@
       const url = /^https?:\/\//i.test(path) ? path : `${base}${path.startsWith('/') ? path : `/${path}`}`;
       const headers = new Headers(options.headers || {});
       headers.set('ngrok-skip-browser-warning', 'true');
-      return fetch(url, { ...options, headers, credentials: 'omit' });
+      return fetch(url, { ...options, headers, credentials: 'same-origin' });
     }
 
     // --- Authentication & Headers ---

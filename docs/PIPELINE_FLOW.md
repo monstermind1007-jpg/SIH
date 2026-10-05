@@ -1,6 +1,6 @@
-# NEXUS-XAI: Sequential Execution Pipeline & File Architecture
+# DHARANETRA: Sequential Execution Pipeline & File Architecture
 
-This document outlines the sequential data, machine learning, and operational workflow of the **NEXUS-XAI** platform, mapping each file to its exact stage in the pipeline.
+This document outlines the sequential data, machine learning, and operational workflow of the **DHARANETRA** platform, mapping each file to its exact stage in the pipeline.
 
 ```mermaid
 flowchart TD

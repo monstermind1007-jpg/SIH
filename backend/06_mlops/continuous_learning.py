@@ -1,6 +1,6 @@
 """
-NEXUS-XAI Continuous Learning & NPU Acceleration Engine
-======================================================
+DHARANETRA Continuous Learning & NPU Acceleration Engine
+=========================================================
 1. Ingestion: Validate schema, apply preprocessing, append to training data store.
 2. Drift Detection: Compute PSI per feature daily; trigger retrain if PSI > 0.20.
 3. Retraining: Full stacking ensemble (XGB + LGBM + CatBoost + ExtraTrees + LR meta-learner)
@@ -586,7 +586,7 @@ class ValidationGate:
 
     def _print_comparison_table(self, old_m: Dict[str, float], new_m: Dict[str, Any]):
         banner = "\n" + "=" * 76 + "\n"
-        banner += "                 NEXUS-XAI VALIDATION GATE AUDIT REPORT\n"
+        banner += "                 DHARANETRA VALIDATION GATE AUDIT REPORT\n"
         banner += "=" * 76 + "\n"
         banner += f"{'Metric':<18} | {'Old Active':<12} | {'New Candidate':<14} | {'Threshold':<11} | {'Status'}\n"
         banner += "-" * 76 + "\n"

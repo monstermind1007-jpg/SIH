@@ -1,5 +1,5 @@
 """
-End-to-End Verification Test for NEXUS-XAI Continuous Learning Pipeline
+End-to-End Verification Test for DHARANETRA Continuous Learning Pipeline
 =====================================================================
 1. Ingest 50 synthetic project records.
 2. Compute feature-by-feature PSI drift.
@@ -99,7 +99,7 @@ def generate_50_synthetic_records() -> list:
 
 def run_pipeline_verification():
     print("\n" + "=" * 76)
-    print("      NEXUS-XAI CONTINUOUS LEARNING END-TO-END VERIFICATION SUITE")
+    print("      DHARANETRA CONTINUOUS LEARNING END-TO-END VERIFICATION SUITE")
     print("=" * 76)
 
     # -------------------------------------------------------------

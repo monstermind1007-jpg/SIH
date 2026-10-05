@@ -1,6 +1,6 @@
 """
-NEXUS-XAI Continuous Learning Automated Scheduler
-=================================================
+DHARANETRA Continuous Learning Automated Scheduler
+==================================================
 Manages automated drift monitoring and retraining jobs:
 - Daily at 00:00 (Midnight): Run feature-by-feature PSI drift check. Auto-trigger retrain if PSI > 0.20.
 - Hourly: Periodic background drift check to ensure continuous distribution monitoring.

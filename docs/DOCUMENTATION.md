@@ -1,4 +1,4 @@
-# NEXUS-XAI: Complete Project Architecture & Operational Documentation
+# DHARANETRA: Complete Project Architecture & Operational Documentation
 
 > **National Executive XAI Utility System for Land Acquisition Delay Prediction, Survival Modeling & Statutory Risk Governance**  
 > *Developed for the Ministry of Rural Development · Smart India Hackathon (SIH)*
@@ -36,8 +36,8 @@
 ### The Infrastructure Bottleneck
 In India, over **₹100+ Lakh Crore** worth of mega-infrastructure projects under the National Infrastructure Pipeline (NIP), PM Gati Shakti, and Bharatmala/Sagarmala face severe delivery bottlenecks. Across highways, high-speed rail, multi-modal logistics hubs, and renewable corridors, **land acquisition delays account for over 70% of project time and cost overruns**.
 
-### The Solution: NEXUS-XAI
-**NEXUS-XAI** is an enterprise-scale, production-ready AI decision support and risk governance platform. It fuses:
+### The Solution: DHARANETRA
+**DHARANETRA** is an enterprise-scale, production-ready AI decision support and risk governance platform. It fuses:
 1. **Statutory RFCTLARR Act 2013 Compliance Metrics** to identify statutory deadlines before proceedings lapse.
 2. **Dual-Paradigm Predictive Modeling** combining tree ensembles with non-parametric survival analysis.
 3. **Local Explainability (TreeSHAP)** to reveal root drivers of delay.
@@ -147,7 +147,7 @@ Traditional regression predicts only a single static day count. In statutory acq
 * **Uno's Concordance Index (C-Index)**: Achieves **$0.9028$** concordance, significantly exceeding standard clinical and industrial survival benchmarks.
 
 ### Conformal Prediction & Uncertainty Intervals
-To eliminate AI overconfidence, NEXUS-XAI integrates non-parametric Split Conformal Prediction:
+To eliminate AI overconfidence, DHARANETRA integrates non-parametric Split Conformal Prediction:
 * Provides **90% coverage guarantees** for predicted delay days.
 * Outputs rigorous error margins (e.g. `±31.6 Days (MAE) · 90% Confidence Interval: [280d, 342d]`).
 * Guarantees that in 90% of real-world cases, the true delay falls inside the generated bounds.
@@ -171,7 +171,7 @@ Knowing that a project is at risk is useless without knowing how to fix it. The 
 
 ## 6. Continuous Learning Pipeline & Autonomous MLOps
 
-NEXUS-XAI operates as a self-governing, continuous learning system that prevents model staleness and data drift.
+DHARANETRA operates as a self-governing, continuous learning system that prevents model staleness and data drift.
 
 ```mermaid
 sequenceDiagram

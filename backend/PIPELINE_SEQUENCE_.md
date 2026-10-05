@@ -1,4 +1,4 @@
-# NEXUS-XAI Backend: Sequential Pipeline Architecture
+# DHARANETRA Backend: Sequential Pipeline Architecture
 
 The files in `backend/` execute sequentially according to the following 7-phase data, machine learning, and serving lifecycle:
 

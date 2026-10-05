@@ -1,5 +1,5 @@
 """
-Comprehensive Verification Test Suite for NEXUS-XAI Continuous Learning Pipeline
+Comprehensive Verification Test Suite for DHARANETRA Continuous Learning Pipeline
 ================================================================================
 Executes and reports on all 9 verification tests requested by user:
 1. Ingestion Test (50 synthetic records, schema validation, preprocessing, store count)
@@ -551,7 +551,7 @@ def run_test_9_e2e() -> Tuple[str, str]:
 
 def main():
     print("=" * 76)
-    print("      NEXUS-XAI CONTINUOUS LEARNING COMPREHENSIVE TEST SUITE")
+    print("      DHARANETRA CONTINUOUS LEARNING COMPREHENSIVE TEST SUITE")
     print("=" * 76)
 
     results = []

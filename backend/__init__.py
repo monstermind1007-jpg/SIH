@@ -1,5 +1,5 @@
 """
-NEXUS-XAI Backend Package Initialization.
+DHARANETRA Backend Package Initialization.
 Ensures sys.path includes backend stages and workspace root for seamless package and standalone script execution.
 Exposes core applications and orchestrators.
 """
