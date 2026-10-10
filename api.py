@@ -13,7 +13,7 @@ for _p in [_ROOT, _BACKEND]:
     if _p not in sys.path:
         sys.path.insert(0, _p)
 
-from backend.api_sih import app
+from backend.api_sih import app, load_artifacts
 
 if __name__ == "__main__":
     import uvicorn
